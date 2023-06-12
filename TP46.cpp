@@ -1,34 +1,36 @@
 #include <iostream>
-#include <string>
 using namespace std;
+
 bool EsNumeroPerfecto(int a);
-int main ()
+
+int main()
 {
-	int n;
-	string msg="NO";
-	cout<<"Ingrese numero: ";
-	cin>>n;
-	if(EsNumeroPerfecto(n)){
-		msg="SI";
-	}
-	cout<<msg<<endl;
-	return 0;
+    int i=1;
+    while (i<=10000)
+    {
+        if (EsNumeroPerfecto(i))
+        {
+            cout<<i<<endl;
+        }
+        i++;
+    }
+    return 0;
 }
+
 bool EsNumeroPerfecto(int a)
 {
-	bool flag=false;              
-	int i=1;
+    bool flag=false;
 	int divisor=0;
-	while (i<=a)
-	{
-		if (a%i==0){
-			divisor=divisor+i;
-		}
-		i++;
+    for (int i=1; i<a; i++)
+    {
+        if (a%i==0)
+        {
+            divisor+=i;
+        }
+    }
+    if (a==divisor)
+    {
+    	flag=true;
 	}
-	if(a==divisor)
-	{
-			flag=true;
-	}
-	return flag;
+    return flag;
 }
